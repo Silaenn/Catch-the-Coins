@@ -3,9 +3,11 @@ using UnityEngine.UI;
 
 public class MovementPoints : MonoBehaviour
 {
-    private float speed = 3f;
+    private float speed;
+    
     void Update()
     {
+        speed = FindAnyObjectByType<GameManager>().pointSpeed;
         transform.position += Vector3.down * speed *Time.deltaTime;  
 
          if(transform.position.y <= -5.61f ){
