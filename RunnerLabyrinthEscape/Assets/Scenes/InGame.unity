@@ -232,6 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 1
   levelDuration: 30
+  spawnPoint: 2
   pointSpeed: 2
   bombSpawnRate: 0
   enablePowerUps: 0
@@ -784,7 +785,7 @@ Transform:
   m_GameObject: {fileID: 773549115}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2692089, y: -0.8964975, z: -0.0067480844}
+  m_LocalPosition: {x: -0.08, y: 3.54, z: -0.0067480844}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1238,7 +1239,7 @@ Transform:
   m_GameObject: {fileID: 1657051134}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2692089, y: -0.8964975, z: -0.0067480844}
+  m_LocalPosition: {x: -0.01, y: 3.57, z: -0.0067480844}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1323,6 +1324,7 @@ GameObject:
   - component: {fileID: 1979304990}
   - component: {fileID: 1979304992}
   - component: {fileID: 1979304991}
+  - component: {fileID: 1979304993}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -1362,7 +1364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1391,6 +1393,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1979304989}
   m_CullTransparentMesh: 1
+--- !u!114 &1979304993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979304989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
+  m_EffectDistance: {x: 7.71, y: 5.93}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2085326997
 GameObject:
   m_ObjectHideFlags: 0
@@ -1422,6 +1439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextPoint: {fileID: 1979304991}
+  Points: 0
 --- !u!61 &2085326999
 BoxCollider2D:
   m_ObjectHideFlags: 0
