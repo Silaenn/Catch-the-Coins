@@ -6,7 +6,8 @@ public class MovementPlayer : MonoBehaviour
     private Rigidbody2D rb;
     private int speed = 3;
     public float minX = -5f; // Batas kiri
-public float maxX = 5f; 
+    public float maxX = 5f; 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -14,8 +15,12 @@ public float maxX = 5f;
 
     void Update()
     {
+        // Hanya menggunakan satu input untuk gerakan
         float moveInput = Input.GetAxis("Horizontal");
+        
+        // Gerakkan pemain dengan velocity (fisika)
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+
         HandleTouch();
     }
 
@@ -33,46 +38,48 @@ public float maxX = 5f;
         }
     }
 
+    // Menangani input sentuhan
     void HandleTouch()
-{
-    if (Input.touchCount > 0)
     {
-        Touch touch = Input.GetTouch(0);
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
 
             if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Stationary)
             {
-                if (touch.position.x > Screen.width / 2) 
+                // Untuk menyelaraskan gerakan dengan bagian layar
+                if (touch.position.x > Screen.width / 2)
                 {
                     MoveRight();
                 }
-                else if (touch.position.x <= Screen.width / 2) 
+                else if (touch.position.x <= Screen.width / 2)
                 {
                     MoveLeft();
                 }
             }
+        }
     }
-}
 
-
-     void MoveRight()
+    void MoveRight()
     {
-        transform.position += Vector3.right * speed * Time.deltaTime;
-
-        transform.position = new Vector3(
-            Mathf.Clamp(transform.position.x, minX, maxX),
-            transform.position.y,
-            transform.position.z
-        );
+        if (transform.position.x < maxX) // Pastikan pemain tidak melebihi batas kanan
+        {
+            rb.velocity = new Vector2(speed, rb.velocity.y);
+        }
     }
 
     void MoveLeft()
     {
-        transform.position += Vector3.left * speed * Time.deltaTime;
+        if (transform.position.x > minX) // Pastikan pemain tidak melewati batas kiri
+        {
+            rb.velocity = new Vector2(-speed, rb.velocity.y);
+        }
+    }
 
-        transform.position = new Vector3(
-            Mathf.Clamp(transform.position.x, minX, maxX),
-            transform.position.y,
-            transform.position.z
-        );
+    // Menghindari posisi pemain keluar dari batas
+    void ClampPosition()
+    {
+        float clampedX = Mathf.Clamp(transform.position.x, minX, maxX);
+        transform.position = new Vector3(clampedX, transform.position.y, transform.position.z);
     }
 }
