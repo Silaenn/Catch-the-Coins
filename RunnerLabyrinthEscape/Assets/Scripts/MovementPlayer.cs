@@ -47,14 +47,13 @@ public class MovementPlayer : MonoBehaviour
 
             if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Stationary)
             {
-                // Untuk menyelaraskan gerakan dengan bagian layar
-                if (touch.position.x > Screen.width / 2)
+                if (touch.position.x > Screen.width / 2 && rb.velocity.x != speed)
                 {
-                    MoveRight();
+                MoveRight();
                 }
-                else if (touch.position.x <= Screen.width / 2)
+            else if (touch.position.x <= Screen.width / 2 && rb.velocity.x != -speed)
                 {
-                    MoveLeft();
+                MoveLeft();
                 }
             }
         }
@@ -74,12 +73,5 @@ public class MovementPlayer : MonoBehaviour
         {
             rb.velocity = new Vector2(-speed, rb.velocity.y);
         }
-    }
-
-    // Menghindari posisi pemain keluar dari batas
-    void ClampPosition()
-    {
-        float clampedX = Mathf.Clamp(transform.position.x, minX, maxX);
-        transform.position = new Vector3(clampedX, transform.position.y, transform.position.z);
     }
 }
