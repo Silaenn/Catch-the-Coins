@@ -12,7 +12,7 @@ public class BombSpawn : MonoBehaviour
         spawnRate = FindObjectOfType<GameManager>().bombSpawnRate;
 
         if(Random.value < spawnRate * Time.deltaTime){
-            Instantiate(bombPrefab, new Vector3(Random.Range(-5f, 5f), 10f, 0), Quaternion.identity);
+            Instantiate(bombPrefab, new Vector3(Random.Range(-0.82f, 1.07f), 3.57f, 0), Quaternion.identity);
         }
     }
 }

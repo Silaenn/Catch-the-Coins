@@ -99,6 +99,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b0d3d1a8f7eaa42ba749184540bcb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skins:
+  - {fileID: 21300000, guid: 45c017f86b5ccdd42b982e10ae3e1398, type: 3}
+  - {fileID: 21300000, guid: fbc0e4878a1a3c64583b99f48ab0301a, type: 3}
+  - {fileID: 21300000, guid: 50d4f635d1ad83247ab9da81c855bb15, type: 3}
+  - {fileID: 21300000, guid: 70ee5b964a37a744fa9bc5d15a253ad8, type: 3}
+  - {fileID: 21300000, guid: f1e015b60f3531f439e83dbbb10728a9, type: 3}
 --- !u!61 &5126925123625593041
 BoxCollider2D:
   m_ObjectHideFlags: 0

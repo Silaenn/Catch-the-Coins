@@ -10,7 +10,7 @@ public class PowerUpSpawn : MonoBehaviour
     {
         if(FindObjectOfType<GameManager>().enablePowerUps){
             if(Random.value < 0.05f * Time.deltaTime){
-                Instantiate(powerUpPrefab, new Vector3(Random.Range(-5f, 5f), 10f, 0), Quaternion.identity);
+                Instantiate(powerUpPrefab, new Vector3(Random.Range(-0.82f, 3.57f), 10f, 0), Quaternion.identity);
             }
         }    
     }

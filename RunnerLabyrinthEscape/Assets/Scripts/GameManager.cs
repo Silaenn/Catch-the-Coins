@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private float levelTimer; // Timer untuk mengatur perubahan level
 
     [Header("Game Settings")]
+    public float spawnPoint = 2f;
     public float pointSpeed = 3f; // Kecepatan jatuh koin
     public float bombSpawnRate = 0f; // Frekuensi bom (0 artinya tidak muncul)
     public bool enablePowerUps = false; // Power-up aktif atau tidak
@@ -45,24 +46,28 @@ public class GameManager : MonoBehaviour
         switch (currentLevel)
         {
             case 1: // Level awal
+                spawnPoint = 2f;
                 pointSpeed = 3f;
                 bombSpawnRate = 0f;
                 enablePowerUps = false;
                 break;
 
             case 2: // Level menengah
+                spawnPoint = 1.8f;
                 pointSpeed = 5f;
                 bombSpawnRate = 0.2f; // Bom muncul 20% dari waktu
                 enablePowerUps = false;
                 break;
 
             case 3: // Level lanjut
+                spawnPoint = 1.6f;
                 pointSpeed = 7f;
                 bombSpawnRate = 0.4f; // Bom muncul lebih sering
                 enablePowerUps = true; // Power-up aktif
                 break;
 
             default: // Level lebih tinggi
+                spawnPoint += 0.1f;
                 pointSpeed += 1f; // Tambahkan kecepatan jatuh
                 bombSpawnRate += 0.1f; // Tambahkan frekuensi bom
                 break;
