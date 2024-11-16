@@ -19,7 +19,7 @@ public class MovementPoints : MonoBehaviour
         speed = FindAnyObjectByType<GameManager>().pointSpeed;
         transform.position += Vector3.down * speed *Time.deltaTime;  
 
-         if(transform.position.y <= -5.61f ){
+         if(transform.position.y <= -7.49f ){
             Destroy(gameObject);
         }
     }
