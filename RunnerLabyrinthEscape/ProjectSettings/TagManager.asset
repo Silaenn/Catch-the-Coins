@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Points
   - Bom
+  - Shield
   layers:
   - Default
   - TransparentFX

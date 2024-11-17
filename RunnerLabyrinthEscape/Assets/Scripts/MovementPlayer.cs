@@ -9,11 +9,17 @@ public class MovementPlayer : MonoBehaviour
     public float maxX = 5f; 
     public bool isImmune = false; // Status imun
     public float immuneDuration = 1.5f; // Durasi imun
+    public float targetOpacity = 120f;
 
-
+    private float originalOpacity;
+    private SpriteRenderer spriteRenderer;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if(spriteRenderer != null){
+            originalOpacity = spriteRenderer.color.a;
+        }
     }
 
     void Update()
@@ -30,6 +36,10 @@ public class MovementPlayer : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Bom") && !isImmune){
             StartCoroutine(HandleKnockbackAndImmunity());
+        }
+
+        if(other.CompareTag("Shield") && !isImmune){
+            StartCoroutine(GrantImmunity());
         }
     }
 
@@ -53,6 +63,14 @@ public class MovementPlayer : MonoBehaviour
     isImmune = false;
 }
 
+IEnumerator GrantImmunity()
+    {
+        isImmune = true;
+        SetOpacity(targetOpacity);
+        yield return new WaitForSeconds(4f); 
+        isImmune = false;
+        ResetOpacity();
+    }
 
     // Menangani input sentuhan
     void HandleTouch()
@@ -88,6 +106,25 @@ public class MovementPlayer : MonoBehaviour
         if (transform.position.x > minX) // Pastikan pemain tidak melewati batas kiri
         {
             rb.velocity = new Vector2(-speed, rb.velocity.y);
+        }
+    }
+
+    void SetOpacity(float opacity){
+        float nomalizedOpacity = Mathf.Clamp(opacity / 255f, 0f, 1f);
+        if(spriteRenderer != null){
+            Color color = spriteRenderer.color;
+            color.a = nomalizedOpacity;
+            spriteRenderer.color = color;
+        }
+    }
+
+     private void ResetOpacity()
+    {
+        if (spriteRenderer != null)
+        {
+            Color color = spriteRenderer.color;
+            color.a = originalOpacity; // Kembalikan ke alpha awal
+            spriteRenderer.color = color;
         }
     }
 }
