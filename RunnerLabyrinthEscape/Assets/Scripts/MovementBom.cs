@@ -6,10 +6,6 @@ using UnityEngine.UI;
 public class MovementBom : MonoBehaviour
 {
     private int speed = 3;
-    private int Poinst;   
-    private Text TextPoint; 
-
-
     // Update is called once per frame
     void Update()
     {

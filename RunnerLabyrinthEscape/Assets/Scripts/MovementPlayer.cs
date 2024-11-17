@@ -13,6 +13,8 @@ public class MovementPlayer : MonoBehaviour
 
     private float originalOpacity;
     private SpriteRenderer spriteRenderer;
+    private Coroutine immunityCoroutine;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,7 +40,7 @@ public class MovementPlayer : MonoBehaviour
             StartCoroutine(HandleKnockbackAndImmunity());
         }
 
-        if(other.CompareTag("Shield") && !isImmune){
+        if(other.CompareTag("Shield")){
             StartCoroutine(GrantImmunity());
         }
     }
@@ -65,14 +67,24 @@ public class MovementPlayer : MonoBehaviour
 
 IEnumerator GrantImmunity()
     {
-        isImmune = true;
-        SetOpacity(targetOpacity);
-        yield return new WaitForSeconds(4f); 
-        isImmune = false;
-        ResetOpacity();
+        if (immunityCoroutine != null)
+    {
+        StopCoroutine(immunityCoroutine);
     }
 
-    // Menangani input sentuhan
+    immunityCoroutine = StartCoroutine(ImmunityRoutine());
+    yield break;
+    }
+
+    private IEnumerator ImmunityRoutine()
+{
+    isImmune = true;
+    SetOpacity(targetOpacity);
+    yield return new WaitForSeconds(4f); 
+    isImmune = false;
+    ResetOpacity();
+}
+
     void HandleTouch()
     {
         if (Input.touchCount > 0)
