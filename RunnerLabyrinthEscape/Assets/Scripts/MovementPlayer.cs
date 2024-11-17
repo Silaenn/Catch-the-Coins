@@ -7,6 +7,9 @@ public class MovementPlayer : MonoBehaviour
     private int speed = 3;
     public float minX = -5f; // Batas kiri
     public float maxX = 5f; 
+    public bool isImmune = false; // Status imun
+    public float immuneDuration = 1.5f; // Durasi imun
+
 
     void Start()
     {
@@ -25,18 +28,31 @@ public class MovementPlayer : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Bom")){
-            HandleKnockbackAndImmunity();
+        if(other.CompareTag("Bom") && !isImmune){
+            StartCoroutine(HandleKnockbackAndImmunity());
         }
     }
 
-    IEnumerator HandleKnockbackAndImmunity(){
-        for (int i = 0; i < 6; i++)
-        {
-            GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
-            yield return new WaitForSeconds(0.25f);
-        }
+   IEnumerator HandleKnockbackAndImmunity()
+{
+    isImmune = true;
+    SpriteRenderer sr = GetComponent<SpriteRenderer>();
+    Color originalColor = sr.color;
+
+    float elapsed = 0f;
+    while (elapsed < immuneDuration)
+    {
+        sr.enabled = !sr.enabled;
+        sr.color = sr.enabled ? Color.red : originalColor; 
+        yield return new WaitForSeconds(0.2f);
+        elapsed += 0.2f;
     }
+
+    sr.color = originalColor;
+    sr.enabled = true;
+    isImmune = false;
+}
+
 
     // Menangani input sentuhan
     void HandleTouch()

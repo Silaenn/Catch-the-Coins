@@ -25,7 +25,8 @@ public class MovementPoints : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Player")){
+        MovementPlayer movementPlayer = FindAnyObjectByType<MovementPlayer>();
+        if(other.CompareTag("Player") && !movementPlayer.isImmune){
             GameOver.instance.ShowGameOver();
         }
     }

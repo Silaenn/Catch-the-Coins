@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public float spawnPoint = 2f;
     public float pointSpeed = 3f; // Kecepatan jatuh koin
     public float bombSpawnRate = 0f; // Frekuensi bom (0 artinya tidak muncul)
+    public float shieldSpawnRate = 0f; // Frekuensi bom (0 artinya tidak muncul)
     public bool enablePowerUps = false; // Power-up aktif atau tidak
 
     void Start()
@@ -49,13 +50,15 @@ public class GameManager : MonoBehaviour
                 spawnPoint = 2f;
                 pointSpeed = 3f;
                 bombSpawnRate = 0f;
-                enablePowerUps = false;
+                shieldSpawnRate = 0.2f;
+                enablePowerUps = true;
                 break;
 
             case 2: // Level menengah
                 spawnPoint = 1.8f;
                 pointSpeed = 5f;
                 bombSpawnRate = 0.2f; // Bom muncul 20% dari waktu
+                shieldSpawnRate = 0.2f; // Shield muncul 20% dari waktu
                 enablePowerUps = false;
                 break;
 
@@ -63,6 +66,7 @@ public class GameManager : MonoBehaviour
                 spawnPoint = 1.6f;
                 pointSpeed = 7f;
                 bombSpawnRate = 0.4f; // Bom muncul lebih sering
+                shieldSpawnRate = 0.4f; // Shield muncul lebih sering
                 enablePowerUps = true; // Power-up aktif
                 break;
 
@@ -70,9 +74,8 @@ public class GameManager : MonoBehaviour
                 spawnPoint += 0.1f;
                 pointSpeed += 1f; // Tambahkan kecepatan jatuh
                 bombSpawnRate += 0.1f; // Tambahkan frekuensi bom
+                shieldSpawnRate += 0.1f; // Tambahkan frekuensi shield
                 break;
         }
-
-        Debug.Log($"Level {currentLevel} mulai: pointSpeed={pointSpeed}, BombRate={bombSpawnRate}, PowerUps={enablePowerUps}");
     }
 }
