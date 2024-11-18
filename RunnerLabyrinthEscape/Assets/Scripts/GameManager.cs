@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
                 spawnPoint = 2f;
                 pointSpeed = 3f;
                 bombSpawnRate = 0f;
-                shieldSpawnRate = 0.2f;
+                shieldSpawnRate = 0f;
                 enablePowerUps = true;
                 break;
 
