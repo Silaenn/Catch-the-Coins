@@ -17,7 +17,8 @@ public class MovementBom : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Player")){
+        MovementPlayer movementPlayer = FindAnyObjectByType<MovementPlayer>();
+        if(other.CompareTag("Player") && !movementPlayer.isImmune){
            PointScoring pointScoring = FindAnyObjectByType<PointScoring>();
             
             if(pointScoring.Points <= 0){
