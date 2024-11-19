@@ -6,7 +6,7 @@ public class GameOver : MonoBehaviour
     public static GameOver instance;
     public int hiScore;
     string HISCORE = "HISCORE";
-    public Text highTExtScore;
+    public Text scoreText, highTextScore;
 
     private void Start() {
         hiScore = PlayerPrefs.GetInt(HISCORE);
@@ -29,6 +29,7 @@ public class GameOver : MonoBehaviour
         hiScore = pointScoring.Points;
         PlayerPrefs.SetInt(HISCORE, hiScore);
     }
-    highTExtScore.text = "High Score: " +hiScore.ToString();
+    highTextScore.text = "High Score: " +hiScore.ToString();
+    scoreText.text = "CurrentScore: " + pointScoring.Points.ToString();
    }
 }
