@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class MovementShield : MonoBehaviour
 {
+    AudioManager audioManager;
     private int speed = 3;
     // Update is called once per frame
     void Update()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         MovementShileds();
     }
 
@@ -21,6 +23,7 @@ public class MovementShield : MonoBehaviour
  
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player")){
+            audioManager.PlaySFX(audioManager.Shield);
             Destroy(gameObject);
         }
     }

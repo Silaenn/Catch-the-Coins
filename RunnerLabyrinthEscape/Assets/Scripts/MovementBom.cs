@@ -6,7 +6,11 @@ using UnityEngine.UI;
 public class MovementBom : MonoBehaviour
 {
     private int speed = 3;
-    // Update is called once per frame
+    AudioManager audioManager;
+
+    private void Start() {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     void Update()
     {
         MovementBoms();
@@ -14,11 +18,16 @@ public class MovementBom : MonoBehaviour
 
      void MovementBoms(){
         transform.position += Vector3.down * speed *Time.deltaTime;  
+
+         if(transform.position.y <= -7.49f ){
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         MovementPlayer movementPlayer = FindAnyObjectByType<MovementPlayer>();
         if(other.CompareTag("Player") && !movementPlayer.isImmune){
+           audioManager.PlaySFX(audioManager.Boom);
            PointScoring pointScoring = FindAnyObjectByType<PointScoring>();
             
             if(pointScoring.Points <= 0){
