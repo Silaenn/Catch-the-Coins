@@ -7,7 +7,10 @@ public class PointScoring : MonoBehaviour
     public Text TextPoint; 
     public int Points = 0;
 
+    AudioManager audioManager;
+
     private void Start() {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         UpdateUI();
     }
 
@@ -29,6 +32,7 @@ public class PointScoring : MonoBehaviour
    
    private void OnTriggerEnter2D(Collider2D other) {
     if(other.CompareTag("Points")){
+        audioManager.PlaySFX(audioManager.Scoring);
         AddPoints(1);
     }
    }
