@@ -9,7 +9,6 @@ public class SkinObject : MonoBehaviour
     public SkinManager skinManager;
 
   private void OnMouseDown() {
-    Debug.Log("Object clicked!");
     skinManager.ChangeSkin(skinIndex);
     SceneManager.LoadScene("InGame");
 }

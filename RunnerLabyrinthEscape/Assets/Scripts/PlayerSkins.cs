@@ -19,6 +19,7 @@ public class PlayerSkins : MonoBehaviour
 
         if (SkinManager.Instance != null && SkinManager.Instance.skins != null) {
             if (selectedSkinIndex >= 0 && selectedSkinIndex < SkinManager.Instance.skins.Length) {
+                 Debug.Log("Applying skin: " + selectedSkinIndex);
                 playerRenderer.sprite = SkinManager.Instance.skins[selectedSkinIndex];
             } else {
                 playerRenderer.sprite = SkinManager.Instance.skins[DefaultSkinIndex];

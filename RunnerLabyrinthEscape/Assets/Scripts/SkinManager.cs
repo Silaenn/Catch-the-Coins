@@ -11,12 +11,15 @@ public class SkinManager : MonoBehaviour
 
     private void Awake() {
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
       public void ChangeSkin(int index){
         if (index >= 0 && index < skins.Length){
             PlayerPrefs.SetInt("SelectedSkin", index);
             PlayerPrefs.Save();
+        } else{
+          Destroy(gameObject);
         }
       }  
 }
