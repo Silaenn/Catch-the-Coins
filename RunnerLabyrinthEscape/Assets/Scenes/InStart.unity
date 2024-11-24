@@ -999,7 +999,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1638,6 +1638,7 @@ GameObject:
   m_Component:
   - component: {fileID: 709149533}
   - component: {fileID: 709149532}
+  - component: {fileID: 709149534}
   m_Layer: 0
   m_Name: TimeLine
   m_TagString: Untagged
@@ -1659,9 +1660,16 @@ PlayableDirector:
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: -5153165624845494384, guid: 63ef4d30b42c9f44c91d36b750b8de5e, type: 2}
+    value: {fileID: 1024642908}
+  - key: {fileID: -4159181466428666554, guid: 63ef4d30b42c9f44c91d36b750b8de5e, type: 2}
+    value: {fileID: 182220072}
+  - key: {fileID: 4827294496704590429, guid: 63ef4d30b42c9f44c91d36b750b8de5e, type: 2}
+    value: {fileID: 187323244}
   m_ExposedReferences:
-    m_References: []
+    m_References:
+    - 5bfc40d9e38918842aac7deb05142309: {fileID: 1024642902}
 --- !u!4 &709149533
 Transform:
   m_ObjectHideFlags: 0
@@ -1677,6 +1685,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &709149534
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709149531}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1024642902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1691,6 +1720,8 @@ GameObject:
   - component: {fileID: 1024642905}
   - component: {fileID: 1024642904}
   - component: {fileID: 1024642908}
+  - component: {fileID: 1024642910}
+  - component: {fileID: 1024642911}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -1708,7 +1739,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.7826271, y: 0.7826271, z: 0.7826271}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 576900855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1852,7 +1883,7 @@ Animator:
   m_GameObject: {fileID: 1024642902}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a64fb1f673bb9f04096e890112590c2f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1863,6 +1894,48 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1024642910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024642902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c964d4f788b26408ae286437fb0919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1024642911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024642902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: a638188f35e172c4298ddc1470a018ee, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1024642910}
+          m_TargetAssemblyTypeName: AnimationController, Assembly-CSharp
+          m_MethodName: EnableAnimation
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1036426337
 GameObject:
   m_ObjectHideFlags: 0
