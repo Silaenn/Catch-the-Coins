@@ -23,6 +23,8 @@ public class AnimationController : MonoBehaviour
         if (animator != null)
         {
             animator.SetTrigger("play");
+            animator.enabled = true;
+
         }
     }
 }

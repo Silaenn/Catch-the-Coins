@@ -7,6 +7,12 @@ public class StartGame : MonoBehaviour
 {
     public void ToInGame(){
         SceneManager.LoadScene("InGame");
+        Debug.Log("masuk");
+    }
+
+    public void ToMainMenu(){
+        SceneManager.LoadScene("InStart");
+        Time.timeScale = 1;
     }
 
     public void Restart(){
