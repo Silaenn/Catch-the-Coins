@@ -228,9 +228,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 754de776f8306c84dba4f2aee9219aa8, type: 3}
+    m_Font: {fileID: 12800000, guid: 00d10195e37426a408d78d636575c17a, type: 3}
     m_FontSize: 170
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 180
@@ -498,9 +498,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 754de776f8306c84dba4f2aee9219aa8, type: 3}
+    m_Font: {fileID: 12800000, guid: 00d10195e37426a408d78d636575c17a, type: 3}
     m_FontSize: 100
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 100
@@ -1502,9 +1502,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 754de776f8306c84dba4f2aee9219aa8, type: 3}
+    m_Font: {fileID: 12800000, guid: 00d10195e37426a408d78d636575c17a, type: 3}
     m_FontSize: 120
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 120
@@ -2036,9 +2036,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 754de776f8306c84dba4f2aee9219aa8, type: 3}
+    m_Font: {fileID: 12800000, guid: 00d10195e37426a408d78d636575c17a, type: 3}
     m_FontSize: 100
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 100
@@ -2289,7 +2289,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.1235962, y: -4}
+  m_AnchoredPosition: {x: -1.4, y: -2.1}
   m_SizeDelta: {x: 704.549, y: 233.7884}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1979304991
@@ -2313,7 +2313,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c8ee303444f20af45831c2b758051354, type: 3}
+    m_Font: {fileID: 12800000, guid: 00d10195e37426a408d78d636575c17a, type: 3}
     m_FontSize: 150
     m_FontStyle: 1
     m_BestFit: 0
