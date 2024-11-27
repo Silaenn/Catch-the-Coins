@@ -23,3 +23,6 @@ Free to play and optimized for a seamless mobile experience.
 
 🚀 Ready to Hustle?
 Challenge your reflexes, dodge traffic, and conquer the highway in Highway Hustle! Download now and show off your high score to the world.
+
+
+Download now at: https://silaenn.itch.io/highway-hustle
