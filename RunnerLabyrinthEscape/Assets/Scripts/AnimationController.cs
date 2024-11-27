@@ -24,7 +24,6 @@ public class AnimationController : MonoBehaviour
         {
             animator.SetTrigger("play");
             animator.enabled = true;
-
         }
     }
 }

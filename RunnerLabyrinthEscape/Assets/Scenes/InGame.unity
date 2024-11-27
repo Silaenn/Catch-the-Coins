@@ -153,8 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: {fileID: 59582311379458971, guid: c038c8e580b87e14cbbed072e860f131, type: 3}
   spawnTime: 4
-  xMin: -1.48
-  xMax: 1.26
+  xMin: 0.33
+  xMax: 1.36
 --- !u!4 &29651358
 Transform:
   m_ObjectHideFlags: 0
@@ -164,7 +164,7 @@ Transform:
   m_GameObject: {fileID: 29651356}
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 5.43, z: 0.029745435}
+  m_LocalPosition: {x: -0.05, y: 5.43, z: 0.029745435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1335,7 +1335,7 @@ Transform:
   m_GameObject: {fileID: 949781935}
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: -0.09, y: 5.43, z: 0.029745435}
+  m_LocalPosition: {x: -0.06, y: 5.43, z: 0.029745435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1355,8 +1355,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: {fileID: 59582311379458971, guid: c038c8e580b87e14cbbed072e860f131, type: 3}
   spawnTime: 2
-  xMin: -1.48
-  xMax: 1.26
+  xMin: -1.5
+  xMax: -0.44
 --- !u!1 &1009931099
 GameObject:
   m_ObjectHideFlags: 0

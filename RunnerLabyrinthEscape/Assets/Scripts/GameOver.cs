@@ -7,9 +7,12 @@ public class GameOver : MonoBehaviour
     public int hiScore;
     string HISCORE = "HISCORE";
     public Text scoreText, highTextScore;
+    public AudioSource backgroundMusic;
+    AudioManager audioManager;
 
     private void Start() {
         hiScore = PlayerPrefs.GetInt(HISCORE);
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void Awake() {
@@ -21,6 +24,11 @@ public class GameOver : MonoBehaviour
     gameOverPanel.SetActive(true);
     PlayerLose();
     Time.timeScale = 0;
+
+    if(backgroundMusic != null){
+        backgroundMusic.Stop();
+    }
+    audioManager.Over(audioManager.Overs);
    }
 
    void PlayerLose(){

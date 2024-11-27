@@ -13,10 +13,6 @@ public class PointsSpawn : MonoBehaviour
     {
         StartCoroutine(SpawnPoinstCoroutine());
     }
-
-    private void Update() {
-        spawnTime = FindAnyObjectByType<GameManager>().spawnPoint;
-    }
     
     IEnumerator SpawnPoinstCoroutine(){
         yield return new WaitForSeconds(spawnTime);

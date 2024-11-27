@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private float levelTimer; // Timer untuk mengatur perubahan level
 
     [Header("Game Settings")]
-    public float spawnPoint = 2f;
+    public float spawnPoint;
     public float pointSpeed = 3f; // Kecepatan jatuh koin
     public float bombSpawnRate = 0f; // Frekuensi bom (0 artinya tidak muncul)
     public float shieldSpawnRate = 0f; // Frekuensi bom (0 artinya tidak muncul)
@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     {
         levelTimer = levelDuration; // Set timer sesuai durasi level
         UpdateLevelSettings(); // Atur pengaturan awal level
+        spawnPoint = FindAnyObjectByType<PointsSpawn>().spawnTime;
     }
 
     void Update()
@@ -47,7 +48,6 @@ public class GameManager : MonoBehaviour
         switch (currentLevel)
         {
             case 1: // Level awal
-                spawnPoint = 2f;
                 pointSpeed = 3f;
                 bombSpawnRate = 0f;
                 shieldSpawnRate = 0f;
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case 2: // Level menengah
-                spawnPoint = 1.8f;
+                spawnPoint += 1.6f;
                 pointSpeed = 5f;
                 bombSpawnRate = 0.2f; // Bom muncul 20% dari waktu
                 shieldSpawnRate = 0.2f; // Shield muncul 20% dari waktu
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case 3: // Level lanjut
-                spawnPoint = 1.6f;
+                spawnPoint += 1.8f;
                 pointSpeed = 7f;
                 bombSpawnRate = 0.4f; // Bom muncul lebih sering
                 shieldSpawnRate = 0.4f; // Shield muncul lebih sering
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             default: // Level lebih tinggi
-                spawnPoint += 0.1f;
+                spawnPoint += 0.8f;
                 pointSpeed += 1f; // Tambahkan kecepatan jatuh
                 bombSpawnRate += 0.1f; // Tambahkan frekuensi bom
                 shieldSpawnRate += 0.1f; // Tambahkan frekuensi shield
